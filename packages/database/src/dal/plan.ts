@@ -33,11 +33,9 @@ export class PlanDAL extends AbstractDataAccessLayer<Plan> {
 
   async initializePlans() {
     // Check if the plans already exist
-<<<<<<< HEAD
+
     const basicPlanExists = await this.redis.exists(this.getKey('pro'));
-=======
-    const basicPlanExists = await this.redis.exists(this.getKey('Pro'));
->>>>>>> 47553a4aaad7975c666ab604820f4250ae045839
+
     const premiumPlanExists = await this.redis.exists(this.getKey('premium'));
 
     // If the plans do not exist, create them
@@ -55,11 +53,9 @@ export class PlanDAL extends AbstractDataAccessLayer<Plan> {
           },
         },
       };
-<<<<<<< HEAD
+
       await this.redis.json.set(this.getKey('pro'), '$', basicPlan);
-=======
-      await this.redis.json.set(this.getKey('Pro'), '$', basicPlan);
->>>>>>> 47553a4aaad7975c666ab604820f4250ae045839
+
     }
 
     if (!premiumPlanExists) {
